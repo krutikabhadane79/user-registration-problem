@@ -35,7 +35,7 @@ public class UserRegistration {
     }
 
     public boolean validatePassword(String password) {
-        String regex = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         boolean check = pattern.matcher(password).matches();
@@ -49,6 +49,6 @@ public class UserRegistration {
         System.out.println(userRegistration.validateLatName("Patil"));
         System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
         System.out.println(userRegistration.validatePhone("91 8878564543"));
-        System.out.println(userRegistration.validatePassword("Krutikaa"));
+        System.out.println(userRegistration.validatePassword("Krutika7"));
     }
 }
