@@ -42,6 +42,13 @@ public class UserRegistration {
         return check;
     }
 
+    public boolean validateAllEmailSamples(String email) {
+        String regex = "[a-zA-Z0-9_.]*[-]*[+]*[a-zA-Z0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+";
+        Pattern pattern=Pattern.compile(regex);
+        Matcher matcher=pattern.matcher(email);
+        boolean check=pattern.matcher(email).matches();
+        return check;
+    }
 
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
@@ -50,5 +57,6 @@ public class UserRegistration {
         System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
         System.out.println(userRegistration.validatePhone("91 8878564543"));
         System.out.println(userRegistration.validatePassword("Krutika7#"));
+        System.out.println(userRegistration.validateAllEmailSamples("abc@yahoo.com"));
     }
 }
