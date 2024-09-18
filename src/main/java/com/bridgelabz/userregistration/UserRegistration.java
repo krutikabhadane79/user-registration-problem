@@ -26,10 +26,20 @@ public class UserRegistration {
         return check;
     }
 
+    public boolean validatePhone(String phone) {
+        String regex = "(0|91)?[-\\s]?[6-9][0-9]{9}";
+        Pattern pattern=Pattern.compile(regex);
+        Matcher matcher=pattern.matcher(phone);
+        boolean check=pattern.matcher(phone).matches();
+        return check;
+    }
+
+
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
         System.out.println(userRegistration.validateFirstName("Kruti"));
         System.out.println(userRegistration.validateLatName("Patil"));
         System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
+        System.out.println(userRegistration.validatePhone("91 8878564543"));
     }
 }
