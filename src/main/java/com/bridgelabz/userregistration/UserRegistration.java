@@ -11,7 +11,7 @@ public class UserRegistration {
         return check;
     }
 
-    public boolean validateLatName(String lname) {
+    public boolean validateLastName(String lname) {
         String regex = "[A-Z][a-z]{3,}";
         Pattern pattern=Pattern.compile(regex);
         boolean check=pattern.matcher(lname).matches();
@@ -53,7 +53,7 @@ public class UserRegistration {
     public static void main(String[] args) {
         UserRegistration userRegistration=new UserRegistration();
         System.out.println(userRegistration.validateFirstName("Kruti"));
-        System.out.println(userRegistration.validateLatName("Patil"));
+        System.out.println(userRegistration.validateLastName("Patil"));
         System.out.println(userRegistration.validateEmail("abc.xyz@bl.co.in"));
         System.out.println(userRegistration.validatePhone("91 8878564543"));
         System.out.println(userRegistration.validatePassword("Krutika7#"));
