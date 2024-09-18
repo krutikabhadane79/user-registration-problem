@@ -2,6 +2,8 @@ package com.bridgelabz.userregistration;
 
 import junit.framework.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class UserRegistrationTest {
     @Test
@@ -30,17 +32,18 @@ public class UserRegistrationTest {
         Assert.assertFalse(result);
     }
 
-    @Test
-    public void givenEmail_WhenValid_ShouldReturn_True() {
+    @ParameterizedTest
+    @ValueSource(strings = {"abc@yahoo.com","abc-100@yahoo.com"})
+    public void givenEmail_WhenValid_ShouldReturn_True(String email) {
         UserRegistration user=new UserRegistration();
-        boolean result=user.validateEmail("abc.xyz@bl.co.in");
-        Assert.assertTrue(result);
+        Assert.assertTrue(user.validateEmail(email));
     }
-    @Test
-    public void givenEmail_WhenValid_ShouldReturn_False() {
+    
+    @ParameterizedTest
+    @ValueSource(strings = {"abc","abc@.com.my"})
+    public void givenEmail_WhenValid_ShouldReturn_False(String email) {
         UserRegistration user=new UserRegistration();
-        boolean result=user.validateEmail("abc.com");
-        Assert.assertFalse(result);
+        Assert.assertFalse(user.validateEmail(email));
     }
 
     @Test
